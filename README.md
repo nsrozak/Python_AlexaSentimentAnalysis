@@ -31,3 +31,13 @@ Latent Dirchlet Allocation did not separate the data into clear topics. However,
 Since the classes of the dataset are imbalanced, I used statified cross validation with the f1 score metric to select hyperparameters for each machine learning model. The best model was ridge regression, with an f1 score of 0.55 and an accuracy of 0.91 on the test data. 
 
 Correctly classified observations were predicted with greater confidence than misclassified observations. Terms that were common in positive reviews that were correctly classified included generic terms with favorable connotations. Correctly classified negative reviews had a myriad of terms that described specific instances where the Amazon Alexa was unsatisfactory. The unique descriptions in negative reviews may have made it more challenging for the model to correctly classify these observerations.
+
+## Improvements
+
+- Write functions for repeated tasks such as building machine learning models to make the code cleaner
+- Scrape additional data from Amazon to balance the classes of positive and negative reviews
+- Remove words that are common in both positive and negative reviews from the vocabulary (like "Amazon")
+- Solve issues with reproducible code
+  - `CountVectorizer()` reorders the vocabulary each time the program gets run
+  - `LDA()` clusters differently depending on the order of the words
+  - `GBTClassifier()` chooses splits differently depending on the order of the words
